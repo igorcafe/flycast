@@ -493,7 +493,7 @@ static void setPlatform(int platform)
 
 void Emulator::init()
 {
-	if (state != Uninitialized)
+	if (state != Uninitialized && state != Terminated)
 	{
 		verify(state == Init);
 		return;

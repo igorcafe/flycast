@@ -389,12 +389,8 @@ void retro_deinit()
 		std::lock_guard<std::mutex> lock(mtx_serialization);
 	}
 	os_UninstallFaultHandler();
-	
-#if defined(__APPLE__) || (defined(__GNUC__) && defined(__linux__) && !defined(__ANDROID__))
-	addrspace::release();
-#else
 	emu.term();
-#endif
+
 	libretro_supports_bitmasks = false;
 	categoriesSupported = false;
 	platformIsDreamcast = true;
